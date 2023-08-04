@@ -15,7 +15,7 @@ e2e4
 - - - - - - - - f3d4
 ##### Sicilian Defense: Old Sicilian Variation
 - - - b8c6
-- - - - d2d4
+- - - - d1d4
 - - - - - c5d4
 - - - - - - f3d4
 - - - - - - - g8f6

@@ -1,21 +1,21 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v7.0/win-x64",
+    "name": ".NETCoreApp,Version=v7.0/ubuntu.16.04-x64",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {},
-    ".NETCoreApp,Version=v7.0/win-x64": {
+    ".NETCoreApp,Version=v7.0/ubuntu.16.04-x64": {
       "ChessBot/1.0.0": {
         "dependencies": {
-          "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "7.0.9"
+          "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64": "7.0.9"
         },
         "runtime": {
           "ChessBot.dll": {}
         }
       },
-      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/7.0.9": {
+      "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/7.0.9": {
         "runtime": {
           "Microsoft.CSharp.dll": {
             "assemblyVersion": "7.0.0.0",
@@ -691,47 +691,47 @@
           }
         },
         "native": {
-          "Microsoft.DiaSymReader.Native.amd64.dll": {
-            "fileVersion": "14.29.30150.0"
+          "createdump": {
+            "fileVersion": "0.0.0.0"
           },
-          "System.IO.Compression.Native.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libSystem.Globalization.Native.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "clretwrc.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libSystem.IO.Compression.Native.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "clrgc.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libSystem.Native.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "clrjit.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libSystem.Net.Security.Native.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "coreclr.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libSystem.Security.Cryptography.Native.OpenSsl.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "createdump.exe": {
-            "fileVersion": "7.0.923.32018"
+          "libclrgc.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "hostfxr.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libclrjit.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "hostpolicy.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libcoreclr.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "mscordaccore.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libcoreclrtraceptprovider.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "mscordaccore_amd64_amd64_7.0.923.32018.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libhostfxr.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "mscordbi.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libhostpolicy.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "mscorrc.dll": {
-            "fileVersion": "7.0.923.32018"
+          "libmscordaccore.so": {
+            "fileVersion": "0.0.0.0"
           },
-          "msquic.dll": {
-            "fileVersion": "2.1.1.0"
+          "libmscordbi.so": {
+            "fileVersion": "0.0.0.0"
           }
         }
       }
@@ -743,135 +743,95 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/7.0.9": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/7.0.9": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
     }
   },
   "runtimes": {
-    "win-x64": [
-      "win",
+    "linuxmint.18-x64": [
+      "linuxmint.18",
+      "ubuntu.16.04-x64",
+      "ubuntu.16.04",
+      "ubuntu-x64",
+      "ubuntu",
+      "debian-x64",
+      "debian",
+      "linux-x64",
+      "linux",
+      "unix-x64",
+      "unix",
       "any",
       "base"
     ],
-    "win-x64-aot": [
-      "win-aot",
-      "win-x64",
-      "win",
-      "aot",
+    "linuxmint.18.1-x64": [
+      "linuxmint.18.1",
+      "linuxmint.18-x64",
+      "linuxmint.18",
+      "ubuntu.16.04-x64",
+      "ubuntu.16.04",
+      "ubuntu-x64",
+      "ubuntu",
+      "debian-x64",
+      "debian",
+      "linux-x64",
+      "linux",
+      "unix-x64",
+      "unix",
       "any",
       "base"
     ],
-    "win10-x64": [
-      "win10",
-      "win81-x64",
-      "win81",
-      "win8-x64",
-      "win8",
-      "win7-x64",
-      "win7",
-      "win-x64",
-      "win",
+    "linuxmint.18.2-x64": [
+      "linuxmint.18.2",
+      "linuxmint.18.1-x64",
+      "linuxmint.18.1",
+      "linuxmint.18-x64",
+      "linuxmint.18",
+      "ubuntu.16.04-x64",
+      "ubuntu.16.04",
+      "ubuntu-x64",
+      "ubuntu",
+      "debian-x64",
+      "debian",
+      "linux-x64",
+      "linux",
+      "unix-x64",
+      "unix",
       "any",
       "base"
     ],
-    "win10-x64-aot": [
-      "win10-aot",
-      "win10-x64",
-      "win10",
-      "win81-x64-aot",
-      "win81-aot",
-      "win81-x64",
-      "win81",
-      "win8-x64-aot",
-      "win8-aot",
-      "win8-x64",
-      "win8",
-      "win7-x64-aot",
-      "win7-aot",
-      "win7-x64",
-      "win7",
-      "win-x64-aot",
-      "win-aot",
-      "win-x64",
-      "win",
-      "aot",
+    "linuxmint.18.3-x64": [
+      "linuxmint.18.3",
+      "linuxmint.18.2-x64",
+      "linuxmint.18.2",
+      "linuxmint.18.1-x64",
+      "linuxmint.18.1",
+      "linuxmint.18-x64",
+      "linuxmint.18",
+      "ubuntu.16.04-x64",
+      "ubuntu.16.04",
+      "ubuntu-x64",
+      "ubuntu",
+      "debian-x64",
+      "debian",
+      "linux-x64",
+      "linux",
+      "unix-x64",
+      "unix",
       "any",
       "base"
     ],
-    "win7-x64": [
-      "win7",
-      "win-x64",
-      "win",
-      "any",
-      "base"
-    ],
-    "win7-x64-aot": [
-      "win7-aot",
-      "win7-x64",
-      "win7",
-      "win-x64-aot",
-      "win-aot",
-      "win-x64",
-      "win",
-      "aot",
-      "any",
-      "base"
-    ],
-    "win8-x64": [
-      "win8",
-      "win7-x64",
-      "win7",
-      "win-x64",
-      "win",
-      "any",
-      "base"
-    ],
-    "win8-x64-aot": [
-      "win8-aot",
-      "win8-x64",
-      "win8",
-      "win7-x64-aot",
-      "win7-aot",
-      "win7-x64",
-      "win7",
-      "win-x64-aot",
-      "win-aot",
-      "win-x64",
-      "win",
-      "aot",
-      "any",
-      "base"
-    ],
-    "win81-x64": [
-      "win81",
-      "win8-x64",
-      "win8",
-      "win7-x64",
-      "win7",
-      "win-x64",
-      "win",
-      "any",
-      "base"
-    ],
-    "win81-x64-aot": [
-      "win81-aot",
-      "win81-x64",
-      "win81",
-      "win8-x64-aot",
-      "win8-aot",
-      "win8-x64",
-      "win8",
-      "win7-x64-aot",
-      "win7-aot",
-      "win7-x64",
-      "win7",
-      "win-x64-aot",
-      "win-aot",
-      "win-x64",
-      "win",
-      "aot",
+    "ubuntu.16.04-x64": [
+      "ubuntu.16.04",
+      "ubuntu-x64",
+      "ubuntu",
+      "debian-x64",
+      "debian",
+      "linux-x64",
+      "linux",
+      "unix-x64",
+      "unix",
       "any",
       "base"
     ]
