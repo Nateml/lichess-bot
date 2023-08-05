@@ -83,7 +83,7 @@ challenge:                         # Incoming challenges.
   max_increment: 20                # Maximum amount of increment to accept a challenge in seconds. The max is 180. Set to 0 for no increment.
   min_increment: 0                 # Minimum amount of increment to accept a challenge in seconds.
   max_base: 900                   # Maximum amount of base time to accept a challenge in seconds. The max is 10800 (3 hours).
-  min_base: 180                     # Minimum amount of base time to accept a challenge in seconds.
+  min_base: 60                     # Minimum amount of base time to accept a challenge in seconds.
   max_days: 14                     # Maximum number of days per move to accept a challenge for a correspondence game.
                                    # Unlimited games can be accepted by removing this field or specifying .inf
   min_days: 1                      # Minimum number of days per move to accept a challenge for a correspondence game.
@@ -134,6 +134,7 @@ matchmaking:
   challenge_variant: "random"      # If set to 'random', the bot will choose one variant from the variants enabled in 'challenge.variants'.
   challenge_timeout: 10            # Create a challenge after being idle for 'challenge_timeout' minutes. The minimum is 1 minute.
   challenge_initial_time:          # Initial time in seconds of the challenge (to be chosen at random).
+    - 120
     - 180
     - 300
     - 600
