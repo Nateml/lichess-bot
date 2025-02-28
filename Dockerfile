@@ -7,11 +7,10 @@ WORKDIR /
 COPY . .
 
 # Make the engine executable
-RUN apt update && apt install -y file
+RUN apt update && apt install -y file libicu-dev
 RUN chmod +x /engines/ChessBot/ChessBot
 RUN ls -l /engines/ChessBot/ChessBot
 RUN file /engines/ChessBot/ChessBot
-RUN /engines/ChessBot/ChessBot
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
