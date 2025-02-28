@@ -1,0 +1,240 @@
+2025-02-28 14:53:30,248 __main__ (lichess-bot.py:965) INFO 
+    .   _/|
+    .  // o\
+    .  || ._)  lichess-bot 2023.8.4.1
+    .  //__\
+    .  )___(   Play on Lichess with a bot
+    
+2025-02-28 14:53:30,279 config (config.py:242) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/ChessBot
+  name: ChessBot
+  working_dir: ''
+  protocol: uci
+  ponder: false
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: false
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options: null
+  silence_stderr: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+challenge:
+  concurrency: 1
+  sort_by: best
+  accept_bot: false
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 900
+  min_base: 60
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+greeting:
+  hello: Hi! I'm {me}. Good luck!.
+  goodbye: GG {opponent}!
+  hello_spectators: Hi! I'm {me}. You can view my source code at https://github.com/Nateml/ChessBot
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: true
+  challenge_variant: random
+  challenge_timeout: 10
+  challenge_initial_time:
+  - 120
+  - 180
+  - 300
+  - 600
+  challenge_increment:
+  - 1
+  - 3
+  - 5
+  opponent_rating_difference: 300
+  opponent_allow_tos_violation: false
+  challenge_mode: rated
+  challenge_filter: none
+
+2025-02-28 14:53:30,279 config (config.py:243) DEBUG ====================
+2025-02-28 14:53:30,286 config (config.py:242) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/ChessBot
+  name: ChessBot
+  working_dir: C:\Users\natem\Projects\LichessChessBot\lichess-bot
+  protocol: uci
+  ponder: false
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: false
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options: null
+  silence_stderr: false
+  online_moves:
+    max_out_of_book_moves: 10
+    max_retries: 2
+    online_egtb:
+      enabled: false
+      source: lichess
+      min_time: 20
+      max_pieces: 7
+      move_quality: best
+    chessdb_book:
+      enabled: false
+      min_time: 20
+      move_quality: good
+      min_depth: 20
+    lichess_cloud_analysis:
+      enabled: false
+      min_time: 20
+      move_quality: best
+      min_depth: 20
+      min_knodes: 0
+      max_score_difference: 50
+    lichess_opening_explorer:
+      enabled: false
+      min_time: 20
+      source: masters
+      player_name: ''
+      sort: winrate
+      min_games: 10
+  polyglot:
+    enabled: false
+    max_depth: 8
+    selection: weighted_random
+    min_weight: 1
+  uci_ponder: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+  uci_ponder: false
+challenge:
+  concurrency: 1
+  sort_by: best
+  accept_bot: false
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 900
+  min_base: 60
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+  block_list: []
+  allow_list: []
+greeting:
+  hello: Hi! I'm {me}. Good luck!.
+  goodbye: GG {opponent}!
+  hello_spectators: Hi! I'm {me}. You can view my source code at https://github.com/Nateml/ChessBot
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: true
+  challenge_variant: random
+  challenge_timeout: 10
+  challenge_initial_time:
+  - 120
+  - 180
+  - 300
+  - 600
+  challenge_increment:
+  - 1
+  - 3
+  - 5
+  opponent_rating_difference: 300
+  opponent_allow_tos_violation: false
+  challenge_mode: rated
+  challenge_filter: none
+  block_list: []
+  challenge_days:
+  - null
+  opponent_min_rating: 600
+  opponent_max_rating: 4000
+
+2025-02-28 14:53:30,286 config (config.py:243) DEBUG ====================
+2025-02-28 14:53:30,288 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2025-02-28 14:53:30,438 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 9
+2025-02-28 14:53:30,439 __main__ (lichess-bot.py:1027) ERROR Quitting lichess-bot due to an error:
+Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 1024, in <module>
+    start_lichess_bot()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 969, in start_lichess_bot
+    li = lichess.Lichess(CONFIG.token, CONFIG.url, __version__, logging_level, max_retries)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess.py", line 98, in __init__
+    raise RuntimeError("Token in config file is not recognized by lichess. "
+RuntimeError: Token in config file is not recognized by lichess. Please check that it was copied correctly into your configuration file.

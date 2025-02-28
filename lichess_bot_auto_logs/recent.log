@@ -1,0 +1,690 @@
+2025-02-28 14:54:37,336 __main__ (lichess-bot.py:965) INFO 
+    .   _/|
+    .  // o\
+    .  || ._)  lichess-bot 2023.8.4.1
+    .  //__\
+    .  )___(   Play on Lichess with a bot
+    
+2025-02-28 14:54:37,344 config (config.py:242) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/ChessBot
+  name: ChessBot
+  working_dir: ''
+  protocol: uci
+  ponder: false
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: false
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options: null
+  silence_stderr: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+challenge:
+  concurrency: 1
+  sort_by: best
+  accept_bot: false
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 900
+  min_base: 60
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+greeting:
+  hello: Hi! I'm {me}. Good luck!.
+  goodbye: GG {opponent}!
+  hello_spectators: Hi! I'm {me}. You can view my source code at https://github.com/Nateml/ChessBot
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: true
+  challenge_variant: random
+  challenge_timeout: 10
+  challenge_initial_time:
+  - 120
+  - 180
+  - 300
+  - 600
+  challenge_increment:
+  - 1
+  - 3
+  - 5
+  opponent_rating_difference: 300
+  opponent_allow_tos_violation: false
+  challenge_mode: rated
+  challenge_filter: none
+
+2025-02-28 14:54:37,362 config (config.py:243) DEBUG ====================
+2025-02-28 14:54:37,367 config (config.py:242) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/ChessBot
+  name: ChessBot
+  working_dir: C:\Users\natem\Projects\LichessChessBot\lichess-bot
+  protocol: uci
+  ponder: false
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: false
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options: null
+  silence_stderr: false
+  online_moves:
+    max_out_of_book_moves: 10
+    max_retries: 2
+    online_egtb:
+      enabled: false
+      source: lichess
+      min_time: 20
+      max_pieces: 7
+      move_quality: best
+    chessdb_book:
+      enabled: false
+      min_time: 20
+      move_quality: good
+      min_depth: 20
+    lichess_cloud_analysis:
+      enabled: false
+      min_time: 20
+      move_quality: best
+      min_depth: 20
+      min_knodes: 0
+      max_score_difference: 50
+    lichess_opening_explorer:
+      enabled: false
+      min_time: 20
+      source: masters
+      player_name: ''
+      sort: winrate
+      min_games: 10
+  polyglot:
+    enabled: false
+    max_depth: 8
+    selection: weighted_random
+    min_weight: 1
+  uci_ponder: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+  uci_ponder: false
+challenge:
+  concurrency: 1
+  sort_by: best
+  accept_bot: false
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 900
+  min_base: 60
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+  block_list: []
+  allow_list: []
+greeting:
+  hello: Hi! I'm {me}. Good luck!.
+  goodbye: GG {opponent}!
+  hello_spectators: Hi! I'm {me}. You can view my source code at https://github.com/Nateml/ChessBot
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: true
+  challenge_variant: random
+  challenge_timeout: 10
+  challenge_initial_time:
+  - 120
+  - 180
+  - 300
+  - 600
+  challenge_increment:
+  - 1
+  - 3
+  - 5
+  opponent_rating_difference: 300
+  opponent_allow_tos_violation: false
+  challenge_mode: rated
+  challenge_filter: none
+  block_list: []
+  challenge_days:
+  - null
+  opponent_min_rating: 600
+  opponent_max_rating: 4000
+
+2025-02-28 14:54:37,367 config (config.py:243) DEBUG ====================
+2025-02-28 14:54:37,371 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2025-02-28 14:54:37,512 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2025-02-28 14:54:37,562 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2025-02-28 14:54:37,562 __main__ (lichess-bot.py:974) INFO Welcome NatesBot!
+2025-02-28 14:54:37,562 __main__ (lichess-bot.py:217) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2025-02-28 14:54:38,162 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2025-02-28 14:54:38,162 matchmaking (matchmaking.py:249) INFO Next challenge will be created after 15:04:38 (0 challenges in last 24 hours)
+2025-02-28 14:54:38,799 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challenge', 'challenge': {'id': 'o6rcVnzk', 'url': 'https://lichess.org/o6rcVnzk', 'status': 'created', 'challenger': {'id': 'nateml', 'name': 'nateml', 'rating': 925, 'title': None, 'provisional': True, 'online': True, 'lag': 4}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1822, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': False, 'speed': 'blitz', 'timeControl': {'type': 'clock', 'limit': 300, 'increment': 3, 'show': '5+3'}, 'color': 'random', 'finalColor': 'white', 'perf': {'icon': '\ue008', 'name': 'Blitz'}}}
+2025-02-28 14:54:38,800 __main__ (lichess-bot.py:432) INFO Accept Blitz casual challenge from nateml (925?) (o6rcVnzk)
+2025-02-28 14:54:38,837 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/challenge/o6rcVnzk/accept HTTP/1.1" 200 11
+2025-02-28 14:54:38,838 __main__ (lichess-bot.py:264) INFO --- Process Queued. Count: 1. IDs: {'o6rcVnzk'}
+2025-02-28 14:54:38,838 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'gameStart', 'game': {'fullId': 'o6rcVnzkPhH5', 'gameId': 'o6rcVnzk', 'fen': 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'color': 'black', 'lastMove': '', 'source': 'friend', 'status': {'id': 20, 'name': 'started'}, 'variant': {'key': 'standard', 'name': 'Standard'}, 'speed': 'blitz', 'perf': 'blitz', 'rated': False, 'hasMoved': False, 'opponent': {'id': 'nateml', 'username': 'nateml', 'rating': 925}, 'isMyTurn': False, 'secondsLeft': 300, 'compat': {'bot': True, 'board': True}, 'id': 'o6rcVnzk'}}
+2025-02-28 14:54:38,838 __main__ (lichess-bot.py:264) INFO --- Process Used. Count: 1. IDs: {'o6rcVnzk'}
+2025-02-28 14:54:38,843 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2025-02-28 14:54:38,959 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:54:38,959 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:54:38,959 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:54:38,959 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:54:38,975 backoff (_common.py:105) INFO Backing off play_game(...) for 0.0s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:54:38,975 lichess (lichess.py:62) DEBUG Backing off 0.0 seconds after 1 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:54:39,084 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:54:39,104 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (2): lichess.org:443
+2025-02-28 14:54:39,216 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:54:39,216 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:54:39,216 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:54:39,224 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:54:39,226 backoff (_common.py:105) INFO Backing off play_game(...) for 1.8s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:54:39,226 lichess (lichess.py:62) DEBUG Backing off 1.8 seconds after 2 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:54:39,228 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:54:41,023 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:54:42,161 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:54:42,162 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:54:42,162 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:54:42,162 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:54:42,162 backoff (_common.py:105) INFO Backing off play_game(...) for 1.1s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:54:42,162 lichess (lichess.py:62) DEBUG Backing off 1.1 seconds after 3 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:54:42,162 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:54:43,307 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (3): lichess.org:443
+2025-02-28 14:54:43,416 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:54:43,416 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:54:43,417 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:54:43,417 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:54:43,420 backoff (_common.py:105) INFO Backing off play_game(...) for 6.2s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:54:43,421 lichess (lichess.py:62) DEBUG Backing off 6.2 seconds after 4 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:54:43,421 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:54:49,662 urllib3.connectionpool (connectionpool.py:1049) DEBUG Starting new HTTPS connection (4): lichess.org:443
+2025-02-28 14:54:49,760 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:54:49,760 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:54:49,760 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:54:49,760 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:54:49,769 backoff (_common.py:105) INFO Backing off play_game(...) for 13.3s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:54:49,770 lichess (lichess.py:62) DEBUG Backing off 13.3 seconds after 5 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:54:49,770 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:55:03,100 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:55:03,209 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:55:03,210 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:55:03,210 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:55:03,211 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:55:03,213 backoff (_common.py:105) INFO Backing off play_game(...) for 7.4s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:55:03,214 lichess (lichess.py:62) DEBUG Backing off 7.4 seconds after 6 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:55:03,215 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:55:07,339 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challenge', 'challenge': {'id': '0xnFdXP1', 'url': 'https://lichess.org/0xnFdXP1', 'status': 'created', 'challenger': {'id': 'morphe157bot', 'name': 'morphe157bot', 'rating': 2189, 'title': 'BOT', 'flair': 'nature.cat-face', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 2, 'show': '1+2'}, 'color': 'random', 'finalColor': 'black', 'perf': {'icon': '\ue032', 'name': 'Bullet'}}, 'compat': {'bot': True, 'board': False}}
+2025-02-28 14:55:07,340 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:55:07,458 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/challenge/0xnFdXP1/decline HTTP/1.1" 200 11
+2025-02-28 14:55:07,460 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challengeDeclined', 'challenge': {'id': '0xnFdXP1', 'url': 'https://lichess.org/0xnFdXP1', 'status': 'declined', 'challenger': {'id': 'morphe157bot', 'name': 'morphe157bot', 'rating': 2189, 'title': 'BOT', 'flair': 'nature.cat-face', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 2, 'show': '1+2'}, 'color': 'random', 'finalColor': 'black', 'perf': {'icon': '\ue032', 'name': 'Bullet'}, 'declineReason': "I'm not accepting challenges from bots.", 'declineReasonKey': 'nobot'}}
+2025-02-28 14:55:07,460 matchmaking (matchmaking.py:299) INFO BOT NatesBot (1894?) declined Bullet rated challenge from BOT morphe157bot (2189) (0xnFdXP1): I'm not accepting challenges from bots.
+2025-02-28 14:55:10,580 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:55:10,706 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:55:10,708 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:55:10,708 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:55:10,708 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:55:10,711 backoff (_common.py:105) INFO Backing off play_game(...) for 59.2s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:55:10,712 lichess (lichess.py:62) DEBUG Backing off 59.2 seconds after 7 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:55:10,712 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:55:20,584 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challenge', 'challenge': {'id': 'hy7OdXgY', 'url': 'https://lichess.org/hy7OdXgY', 'status': 'created', 'challenger': {'id': 'cleobot', 'name': 'CleoBot', 'rating': 2050, 'title': 'BOT', 'flair': 'nature.sunflower', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 2, 'show': '1+2'}, 'color': 'random', 'finalColor': 'black', 'perf': {'icon': '\ue032', 'name': 'Bullet'}}, 'compat': {'bot': True, 'board': False}}
+2025-02-28 14:55:20,585 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:55:20,703 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/challenge/hy7OdXgY/decline HTTP/1.1" 200 11
+2025-02-28 14:55:20,704 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challengeDeclined', 'challenge': {'id': 'hy7OdXgY', 'url': 'https://lichess.org/hy7OdXgY', 'status': 'declined', 'challenger': {'id': 'cleobot', 'name': 'CleoBot', 'rating': 2050, 'title': 'BOT', 'flair': 'nature.sunflower', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 2, 'show': '1+2'}, 'color': 'random', 'finalColor': 'black', 'perf': {'icon': '\ue032', 'name': 'Bullet'}, 'declineReason': "I'm not accepting challenges from bots.", 'declineReasonKey': 'nobot'}}
+2025-02-28 14:55:20,704 matchmaking (matchmaking.py:299) INFO BOT NatesBot (1894?) declined Bullet rated challenge from BOT CleoBot (2050) (hy7OdXgY): I'm not accepting challenges from bots.
+2025-02-28 14:55:31,931 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challenge', 'challenge': {'id': 'qArLgGtb', 'url': 'https://lichess.org/qArLgGtb', 'status': 'created', 'challenger': {'id': 'm8-bot', 'name': 'm8-bot', 'rating': 2183, 'title': 'BOT', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 1, 'show': '1+1'}, 'color': 'random', 'finalColor': 'white', 'perf': {'icon': '\ue032', 'name': 'Bullet'}}, 'compat': {'bot': True, 'board': False}}
+2025-02-28 14:55:31,939 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:55:32,079 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "POST /api/challenge/qArLgGtb/decline HTTP/1.1" 200 11
+2025-02-28 14:55:32,081 __main__ (lichess-bot.py:381) DEBUG Event: {'type': 'challengeDeclined', 'challenge': {'id': 'qArLgGtb', 'url': 'https://lichess.org/qArLgGtb', 'status': 'declined', 'challenger': {'id': 'm8-bot', 'name': 'm8-bot', 'rating': 2183, 'title': 'BOT', 'online': True}, 'destUser': {'id': 'natesbot', 'name': 'NatesBot', 'rating': 1894, 'title': 'BOT', 'provisional': True, 'online': True, 'lag': 4}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': True, 'speed': 'bullet', 'timeControl': {'type': 'clock', 'limit': 60, 'increment': 1, 'show': '1+1'}, 'color': 'random', 'finalColor': 'white', 'perf': {'icon': '\ue032', 'name': 'Bullet'}, 'declineReason': "I'm not accepting challenges from bots.", 'declineReasonKey': 'nobot'}}
+2025-02-28 14:55:32,081 matchmaking (matchmaking.py:299) INFO BOT NatesBot (1894?) declined Bullet rated challenge from BOT m8-bot (2183) (qArLgGtb): I'm not accepting challenges from bots.
+2025-02-28 14:56:09,922 urllib3.connectionpool (connectionpool.py:289) DEBUG Resetting dropped connection: lichess.org
+2025-02-28 14:56:10,041 urllib3.connectionpool (connectionpool.py:544) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/o6rcVnzk HTTP/1.1" 200 None
+2025-02-28 14:56:10,041 __mp_main__ (lichess-bot.py:571) DEBUG Initial state: {'id': 'o6rcVnzk', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'blitz', 'perf': {'name': 'Blitz'}, 'rated': False, 'createdAt': 1740750878839, 'white': {'id': 'nateml', 'name': 'nateml', 'title': None, 'rating': 925, 'provisional': True}, 'black': {'id': 'natesbot', 'name': 'NatesBot', 'title': 'BOT', 'rating': 1822, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 300000, 'increment': 3000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 300000, 'btime': 300000, 'winc': 3000, 'binc': 3000, 'status': 'started'}}
+2025-02-28 14:56:10,041 engine_wrapper (engine_wrapper.py:64) DEBUG Starting engine: ['C:\\Users\\natem\\Projects\\LichessChessBot\\lichess-bot\\engines\\ChessBot\\ChessBot']
+2025-02-28 14:56:10,041 asyncio (proactor_events.py:626) DEBUG Using proactor: IocpProactor
+2025-02-28 14:56:10,041 backoff (_common.py:105) INFO Backing off play_game(...) for 30.6s (OSError: [WinError 193] %1 is not a valid Win32 application)
+2025-02-28 14:56:10,041 lichess (lichess.py:62) DEBUG Backing off 30.6 seconds after 8 tries calling function <function play_game at 0x0000029CE691EA70> with args () and kwargs {'li': <lichess.Lichess object at 0x0000029CE318B5B0>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bbe0>, 'user_profile': {'id': 'natesbot', 'username': 'NatesBot', 'perfs': {'bullet': {'games': 1215, 'rating': 1894, 'rd': 149, 'prog': -4, 'prov': True}, 'blitz': {'games': 2982, 'rating': 1822, 'rd': 134, 'prog': -10, 'prov': True}, 'rapid': {'games': 1425, 'rating': 1880, 'rd': 147, 'prog': -19, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1689858499983, 'profile': {'flag': 'ZA', 'bio': "Hi, I知 a chess bot written in C#. I can only play one game at a time, and I'm accepting bullet (2min+), blitz and rapid games. I still need a lot of work, and have the occasional bug bothering me. Check out my source code over here: https://github.com/Nateml/ChessBot"}, 'seenAt': 1740750172784, 'playTime': {'total': 3540957, 'tv': 2500}, 'url': 'https://lichess.org/@/NatesBot', 'count': {'all': 6811, 'rated': 6288, 'ai': 0, 'draw': 1947, 'drawH': 1947, 'loss': 2281, 'lossH': 2281, 'win': 2583, 'winH': 2583, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False}, 'config': <config.Configuration object at 0x0000029CE696BBB0>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x29ce696bac0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bdc0>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x29ce696bfa0>, 'game_id': 'o6rcVnzk'}
+2025-02-28 14:56:10,049 lichess (lichess.py:64) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\lichess-bot.py", line 575, in play_game
+    with engine_wrapper.create_engine(config) as engine:
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 65, in create_engine
+    engine = Engine(commands, options, stderr, cfg.draw_or_resign, cwd=cfg.working_dir)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\engine_wrapper.py", line 430, in __init__
+    self.engine = chess.engine.SimpleEngine.popen_uci(commands, timeout=10., debug=False, setpgrp=False, stderr=stderr,
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3054, in popen_uci
+    return cls.popen(UciProtocol, command, timeout=timeout, debug=debug, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3046, in popen
+    return run_in_background(background, name=f"{cls.__name__} (command={command!r})", debug=debug)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 201, in run_in_background
+    return future.result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 195, in background
+    asyncio.run(coroutine(future))
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 3034, in background
+    transport, protocol = await Protocol.popen(command, setpgrp=setpgrp, **popen_args)
+  File "C:\Users\natem\Projects\LichessChessBot\lichess-bot\env\lib\site-packages\chess\engine.py", line 1320, in popen
+    return await asyncio.get_running_loop().subprocess_exec(cls, *command, **popen_args)
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1667, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 394, in _make_subprocess_transport
+    transp = _WindowsSubprocessTransport(self, protocol, args, shell,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 890, in _start
+    self._proc = windows_utils.Popen(
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_utils.py", line 153, in __init__
+    super().__init__(args, stdin=stdin_rfd, stdout=stdout_wfd,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\natem\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1438, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+2025-02-28 14:56:22,001 __mp_main__ (lichess-bot.py:66) DEBUG Received SIGINT. Terminating client.

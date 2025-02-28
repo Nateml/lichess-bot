@@ -9,8 +9,5 @@ COPY . .
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port
-EXPOSE 8080
-
 # Set the default command
-CMD ["python", "server.py"]
+CMD ["python", "lichess-bot.py"]
