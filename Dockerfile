@@ -6,6 +6,9 @@ WORKDIR /
 # Copy files
 COPY . .
 
+# Make the engine executable
+RUN chmod +x /engines/ChessBot/ChessBot
+
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
