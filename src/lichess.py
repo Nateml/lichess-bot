@@ -10,10 +10,10 @@ import traceback
 from collections import defaultdict
 import datetime
 import contextlib
-from lib.timer import Timer, seconds, sec_str
+from src.timer import Timer, seconds, sec_str
 from typing import Optional, Union, cast
 import chess.engine
-from lib.lichess_types import (UserProfileType, REQUESTS_PAYLOAD_TYPE, GameType, PublicDataType, OnlineType,
+from src.lichess_types import (UserProfileType, REQUESTS_PAYLOAD_TYPE, GameType, PublicDataType, OnlineType,
                        ChallengeType, TOKEN_TESTS_TYPE, BackoffDetails)
 
 

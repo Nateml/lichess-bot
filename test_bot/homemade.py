@@ -3,10 +3,10 @@ from homemade import ExampleEngine
 import chess
 import chess.engine
 import sys
-from lib.config import Configuration
-from lib import model
+from src.config import Configuration
+from src import model
 from typing import Optional
-from lib.lichess_types import OPTIONS_GO_EGTB_TYPE, COMMANDS_TYPE, MOVE
+from src.lichess_types import OPTIONS_GO_EGTB_TYPE, COMMANDS_TYPE, MOVE
 
 # ruff: noqa: ARG002
 

@@ -3,14 +3,14 @@ import random
 import logging
 import datetime
 import contextlib
-from lib import model
-from lib.timer import Timer, seconds, minutes, days, years
+from src import model
+from src.timer import Timer, seconds, minutes, days, years
 from collections import defaultdict
 from collections.abc import Sequence
-from lib.lichess import Lichess
-from lib.config import Configuration
+from src.lichess import Lichess
+from src.config import Configuration
 from typing import Optional, Union
-from lib.lichess_types import UserProfileType, PerfType, EventType, FilterType
+from src.lichess_types import UserProfileType, PerfType, EventType, FilterType
 MULTIPROCESSING_LIST_TYPE = Sequence[model.Challenge]
 DAILY_TIMERS_TYPE = list[Timer]
 

@@ -1,6 +1,6 @@
 """Tests for the lichess communication."""
 
-from lib import lichess
+from src import lichess
 import logging
 import os
 import pytest

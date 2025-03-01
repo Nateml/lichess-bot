@@ -8,9 +8,9 @@ import datetime
 from queue import Queue
 from requests.models import Response
 from typing import Union, Optional, Generator
-from lib.lichess import Lichess as OriginalLichess
-from lib.timer import to_msec
-from lib.lichess_types import (UserProfileType, ChallengeType, REQUESTS_PAYLOAD_TYPE, GameType, OnlineType, PublicDataType,
+from src.lichess import Lichess as OriginalLichess
+from src.timer import to_msec
+from src.lichess_types import (UserProfileType, ChallengeType, REQUESTS_PAYLOAD_TYPE, GameType, OnlineType, PublicDataType,
                        BackoffDetails)
 
 # ruff: noqa: ARG002

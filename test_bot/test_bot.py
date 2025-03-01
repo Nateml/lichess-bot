@@ -16,14 +16,14 @@ import logging
 from multiprocessing import Manager
 from queue import Queue
 import test_bot.lichess
-from lib import config
-from lib.timer import Timer, to_seconds, seconds
+from src import config
+from src.timer import Timer, to_seconds, seconds
 from typing import Optional
-from lib.engine_wrapper import test_suffix
-from lib.lichess_types import CONFIG_DICT_TYPE
+from src.engine_wrapper import test_suffix
+from src.lichess_types import CONFIG_DICT_TYPE
 if "pytest" not in sys.modules:
     sys.exit(f"The script {os.path.basename(__file__)} should only be run by pytest.")
-from lib import lichess_bot
+from src import lichess_bot
 
 platform = sys.platform
 archive_ext = "zip" if platform == "win32" else "tar"

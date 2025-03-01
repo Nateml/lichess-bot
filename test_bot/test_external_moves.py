@@ -10,12 +10,12 @@ from datetime import timedelta
 from copy import deepcopy
 from requests.exceptions import ConnectionError as RequestsConnectionError, HTTPError, ReadTimeout, RequestException
 from http.client import RemoteDisconnected
-from lib.lichess_types import OnlineType, GameEventType
+from src.lichess_types import OnlineType, GameEventType
 from typing import Optional, Union, cast
-from lib.lichess import is_final, backoff_handler, Lichess
-from lib.config import Configuration, insert_default_values
-from lib.model import Game
-from lib.engine_wrapper import get_online_move, get_book_move
+from src.lichess import is_final, backoff_handler, Lichess
+from src.config import Configuration, insert_default_values
+from src.model import Game
+from src.engine_wrapper import get_online_move, get_book_move
 
 
 class MockLichess(Lichess):

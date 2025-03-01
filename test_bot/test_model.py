@@ -1,12 +1,12 @@
 """Tests for the models."""
 
 import datetime
-from lib import model
+from src import model
 import yaml
-from lib import config
+from src import config
 from collections import defaultdict, Counter
-from lib.timer import Timer
-from lib.lichess_types import ChallengeType, UserProfileType, GameEventType, PlayerType
+from src.timer import Timer
+from src.lichess_types import ChallengeType, UserProfileType, GameEventType, PlayerType
 
 
 def test_challenge() -> None:

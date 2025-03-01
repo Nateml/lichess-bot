@@ -6,8 +6,8 @@ With these classes, bot makers will not have to implement the UCI or XBoard inte
 import chess
 from chess.engine import PlayResult, Limit
 import random
-from lib.engine_wrapper import MinimalEngine
-from lib.lichess_types import MOVE, HOMEMADE_ARGS_TYPE
+from src.engine_wrapper import MinimalEngine
+from src.lichess_types import MOVE, HOMEMADE_ARGS_TYPE
 import logging
 
 

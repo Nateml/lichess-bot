@@ -3,7 +3,7 @@ import argparse
 import chess
 import chess.pgn
 from chess.variant import find_variant
-from lib import engine_wrapper, model, lichess, matchmaking
+from src import engine_wrapper, model, lichess, matchmaking
 import json
 import logging
 import logging.handlers
@@ -24,10 +24,10 @@ import glob
 import platform
 import importlib.metadata
 import contextlib
-from lib.config import load_config, Configuration, log_config
-from lib.conversation import Conversation, ChatLine
-from lib.timer import Timer, seconds, msec, hours, to_seconds
-from lib.lichess_types import (UserProfileType, EventType, GameType, GameEventType, CONTROL_QUEUE_TYPE,
+from src.config import load_config, Configuration, log_config
+from src.conversation import Conversation, ChatLine
+from src.timer import Timer, seconds, msec, hours, to_seconds
+from src.lichess_types import (UserProfileType, EventType, GameType, GameEventType, CONTROL_QUEUE_TYPE,
                                CORRESPONDENCE_QUEUE_TYPE, LOGGING_QUEUE_TYPE, PGN_QUEUE_TYPE)
 from requests.exceptions import ChunkedEncodingError, ConnectionError as RequestsConnectionError, HTTPError, ReadTimeout
 from rich.logging import RichHandler

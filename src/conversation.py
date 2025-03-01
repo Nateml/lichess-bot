@@ -1,11 +1,11 @@
 """Allows lichess-bot to send messages to the chat."""
 import logging
-from lib import model
-from lib.engine_wrapper import EngineWrapper
-from lib.lichess import Lichess
-from lib.lichess_types import GameEventType
+from src import model
+from src.engine_wrapper import EngineWrapper
+from src.lichess import Lichess
+from src.lichess_types import GameEventType
 from collections.abc import Sequence
-from lib.timer import seconds
+from src.timer import seconds
 MULTIPROCESSING_LIST_TYPE = Sequence[model.Challenge]
 
 logger = logging.getLogger(__name__)

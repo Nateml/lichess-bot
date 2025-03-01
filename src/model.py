@@ -4,10 +4,10 @@ from urllib.parse import urljoin
 import logging
 import datetime
 from enum import Enum
-from lib.timer import Timer, msec, seconds, sec_str, to_msec, to_seconds, years
-from lib.config import Configuration
+from src.timer import Timer, msec, seconds, sec_str, to_msec, to_seconds, years
+from src.config import Configuration
 from collections import defaultdict, Counter
-from lib.lichess_types import UserProfileType, ChallengeType, GameEventType, PlayerType
+from src.lichess_types import UserProfileType, ChallengeType, GameEventType, PlayerType
 
 logger = logging.getLogger(__name__)
 

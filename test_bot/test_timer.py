@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from lib import timer
+from src import timer
 
 
 def test_time_conversion() -> None:

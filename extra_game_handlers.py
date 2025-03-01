@@ -1,6 +1,6 @@
 """Functions for the user to implement when the config file is not adequate to express bot requirements."""
-from lib import model
-from lib.lichess_types import OPTIONS_TYPE
+from src import model
+from src.lichess_types import OPTIONS_TYPE
 
 
 def game_specific_options(game: model.Game) -> OPTIONS_TYPE:  # noqa: ARG001
