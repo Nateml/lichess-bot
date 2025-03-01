@@ -2,17 +2,20 @@
 import json
 import requests
 from urllib.parse import urljoin
-from requests.exceptions import ConnectionError, HTTPError, ReadTimeout
+from requests.exceptions import ConnectionError as RequestsConnectionError, HTTPError, ReadTimeout
 from http.client import RemoteDisconnected
 import backoff
 import logging
 import traceback
 from collections import defaultdict
-from timer import Timer
-from typing import Optional, Union, Any
+import datetime
+import contextlib
+from lib.timer import Timer, seconds, sec_str
+from typing import Optional, Union, cast
 import chess.engine
-JSON_REPLY_TYPE = dict[str, Any]
-REQUESTS_PAYLOAD_TYPE = dict[str, Any]
+from lib.lichess_types import (UserProfileType, REQUESTS_PAYLOAD_TYPE, GameType, PublicDataType, OnlineType,
+                       ChallengeType, TOKEN_TESTS_TYPE, BackoffDetails)
+
 
 ENDPOINTS = {
     "profile": "/api/account",
@@ -20,6 +23,7 @@ ENDPOINTS = {
     "stream": "/api/bot/game/stream/{}",
     "stream_event": "/api/stream/event",
     "move": "/api/bot/game/{}/move/{}",
+    "takeback": "/api/bot/game/{}/takeback/{}",
     "chat": "/api/bot/game/{}/chat",
     "abort": "/api/bot/game/{}/abort",
     "accept": "/api/challenge/{}/accept",
@@ -41,10 +45,8 @@ logger = logging.getLogger(__name__)
 MAX_CHAT_MESSAGE_LEN = 140  # The maximum characters in a chat message.
 
 
-class RateLimited(RuntimeError):
+class RateLimitedError(RuntimeError):
     """Exception raised when we are rate limited (status code 429)."""
-
-    pass
 
 
 def is_new_rate_limit(response: requests.models.Response) -> bool:
@@ -54,10 +56,10 @@ def is_new_rate_limit(response: requests.models.Response) -> bool:
 
 def is_final(exception: Exception) -> bool:
     """If `is_final` returns True then we won't retry."""
-    return isinstance(exception, HTTPError) and exception.response.status_code < 500
+    return isinstance(exception, HTTPError) and exception.response is not None and exception.response.status_code < 500
 
 
-def backoff_handler(details: Any) -> None:
+def backoff_handler(details: BackoffDetails) -> None:
     """Log exceptions inside functions with the backoff decorator."""
     logger.debug("Backing off {wait:0.1f} seconds after {tries} tries "
                  "calling function {target} with args {args} and kwargs {kwargs}".format(**details))
@@ -92,7 +94,8 @@ class Lichess:
         self.rate_limit_timers: defaultdict[str, Timer] = defaultdict(Timer)
 
         # Confirm that the OAuth token has the proper permission to play on lichess
-        token_info = self.api_post("token_test", data=token)[token]
+        token_response = cast(TOKEN_TESTS_TYPE, self.api_post("token_test", data=token))
+        token_info = token_response[token]
 
         if not token_info:
             raise RuntimeError("Token in config file is not recognized by lichess. "
@@ -105,7 +108,7 @@ class Lichess:
                                f"The current token has: {scopes}.")
 
     @backoff.on_exception(backoff.constant,
-                          (RemoteDisconnected, ConnectionError, HTTPError, ReadTimeout),
+                          (RemoteDisconnected, RequestsConnectionError, HTTPError, ReadTimeout),
                           max_time=60,
                           interval=0.1,
                           giveup=is_final,
@@ -131,7 +134,7 @@ class Lichess:
         response = self.session.get(url, params=params, timeout=timeout, stream=stream)
 
         if is_new_rate_limit(response):
-            delay = 1 if endpoint_name == "move" else 60
+            delay = seconds(1 if endpoint_name == "move" else 60)
             self.set_rate_limit_delay(path_template, delay)
 
         response.raise_for_status()
@@ -139,7 +142,8 @@ class Lichess:
         return response
 
     def api_get_json(self, endpoint_name: str, *template_args: str,
-                     params: Optional[dict[str, str]] = None) -> JSON_REPLY_TYPE:
+                     params: Optional[dict[str, str]] = None
+                     ) -> Union[PublicDataType, UserProfileType, dict[str, list[GameType]]]:
         """
         Send a GET to the lichess.org endpoints that return a JSON.
 
@@ -149,11 +153,11 @@ class Lichess:
         :return: lichess.org's response in a dict.
         """
         response = self.api_get(endpoint_name, *template_args, params=params)
-        json_response: JSON_REPLY_TYPE = response.json()
+        json_response: Union[PublicDataType, UserProfileType, dict[str, list[GameType]]] = response.json()
         return json_response
 
     def api_get_list(self, endpoint_name: str, *template_args: str,
-                     params: Optional[dict[str, str]] = None) -> list[JSON_REPLY_TYPE]:
+                     params: Optional[dict[str, str]] = None) -> list[UserProfileType]:
         """
         Send a GET to the lichess.org endpoints that return a list containing JSON.
 
@@ -163,11 +167,11 @@ class Lichess:
         :return: lichess.org's response in a list of dicts.
         """
         response = self.api_get(endpoint_name, *template_args, params=params)
-        json_response: list[JSON_REPLY_TYPE] = response.json()
+        json_response: list[UserProfileType] = response.json()
         return json_response
 
     def api_get_raw(self, endpoint_name: str, *template_args: str,
-                    params: Optional[dict[str, str]] = None, ) -> str:
+                    params: Optional[dict[str, str]] = None) -> str:
         """
         Send a GET to lichess.org that returns plain text (UTF-8).
 
@@ -180,7 +184,7 @@ class Lichess:
         return response.text
 
     @backoff.on_exception(backoff.constant,
-                          (RemoteDisconnected, ConnectionError, HTTPError, ReadTimeout),
+                          (RemoteDisconnected, RequestsConnectionError, HTTPError, ReadTimeout),
                           max_time=60,
                           interval=0.1,
                           giveup=is_final,
@@ -189,12 +193,12 @@ class Lichess:
                           giveup_log_level=logging.DEBUG)
     def api_post(self,
                  endpoint_name: str,
-                 *template_args: Any,
+                 *template_args: str,
                  data: Union[str, dict[str, str], None] = None,
                  headers: Optional[dict[str, str]] = None,
                  params: Optional[dict[str, str]] = None,
                  payload: Optional[REQUESTS_PAYLOAD_TYPE] = None,
-                 raise_for_status: bool = True) -> JSON_REPLY_TYPE:
+                 raise_for_status: bool = True) -> Union[ChallengeType, Optional[TOKEN_TESTS_TYPE]]:
         """
         Send a POST to lichess.org.
 
@@ -213,12 +217,12 @@ class Lichess:
         response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
 
         if is_new_rate_limit(response):
-            self.set_rate_limit_delay(path_template, 60)
+            self.set_rate_limit_delay(path_template, seconds(60))
 
         if raise_for_status:
             response.raise_for_status()
 
-        json_response: JSON_REPLY_TYPE = response.json()
+        json_response: Union[ChallengeType, Optional[TOKEN_TESTS_TYPE]] = response.json()
         return json_response
 
     def get_path_template(self, endpoint_name: str) -> str:
@@ -230,43 +234,55 @@ class Lichess:
         """
         path_template = ENDPOINTS[endpoint_name]
         if self.is_rate_limited(path_template):
-            raise RateLimited(f"{path_template} is rate-limited. "
-                              f"Will retry in {int(self.rate_limit_time_left(path_template))} seconds.")
+            raise RateLimitedError(f"{path_template} is rate-limited. "
+                                   f"Will retry in {sec_str(self.rate_limit_time_left(path_template))} seconds.")
         return path_template
 
-    def set_rate_limit_delay(self, path_template: str, delay_time: int) -> None:
+    def set_rate_limit_delay(self, path_template: str, delay_time: datetime.timedelta) -> None:
         """
         Set a delay to a path template if it was rate limited.
 
         :param path_template: The path template.
         :param delay_time: How long we won't call this endpoint.
         """
-        logger.warning(f"Endpoint {path_template} is rate limited. Waiting {delay_time} seconds until next request.")
+        logger.warning(f"Endpoint {path_template} is rate limited. Waiting {sec_str(delay_time)} seconds until next request.")
         self.rate_limit_timers[path_template] = Timer(delay_time)
 
     def is_rate_limited(self, path_template: str) -> bool:
         """Check if a path template is rate limited."""
         return not self.rate_limit_timers[path_template].is_expired()
 
-    def rate_limit_time_left(self, path_template: str) -> float:
+    def rate_limit_time_left(self, path_template: str) -> datetime.timedelta:
         """How much time is left until we can use the path template normally."""
         return self.rate_limit_timers[path_template].time_until_expiration()
 
-    def upgrade_to_bot_account(self) -> JSON_REPLY_TYPE:
+    def upgrade_to_bot_account(self) -> None:
         """Upgrade the account to a BOT account."""
-        return self.api_post("upgrade")
+        self.api_post("upgrade")
 
-    def make_move(self, game_id: str, move: chess.engine.PlayResult) -> JSON_REPLY_TYPE:
+    def make_move(self, game_id: str, move: chess.engine.PlayResult) -> None:
         """
         Make a move.
 
         :param game_id: The id of the game.
         :param move: The move to make.
         """
-        return self.api_post("move", game_id, move.move,
-                             params={"offeringDraw": str(move.draw_offered).lower()})
+        self.api_post("move", game_id, str(move.move),
+                      params={"offeringDraw": str(move.draw_offered).lower()})
 
-    def chat(self, game_id: str, room: str, text: str) -> JSON_REPLY_TYPE:
+    def accept_takeback(self, game_id: str, accept: bool) -> bool:
+        """Answer an opponent's move takeback request."""
+        try:
+            self.api_post("takeback", game_id, "yes" if accept else "no")
+            if accept:
+                logger.info("Opponent took back previous move.")
+            else:
+                logger.info("Refused opponent's take back request.")
+            return accept
+        except Exception:
+            return False
+
+    def chat(self, game_id: str, room: str, text: str) -> None:
         """
         Send a message to the chat.
 
@@ -278,14 +294,13 @@ class Lichess:
             logger.warning(f"This chat message is {len(text)} characters, which is longer "
                            f"than the maximum of {MAX_CHAT_MESSAGE_LEN}. It will not be sent.")
             logger.warning(f"Message: {text}")
-            return {}
 
-        payload = {"room": room, "text": text}
-        return self.api_post("chat", game_id, data=payload)
+        data = {"room": room, "text": text}
+        self.api_post("chat", game_id, data=data)
 
-    def abort(self, game_id: str) -> JSON_REPLY_TYPE:
+    def abort(self, game_id: str) -> None:
         """Aborts a game."""
-        return self.api_post("abort", game_id)
+        self.api_post("abort", game_id)
 
     def get_event_stream(self) -> requests.models.Response:
         """Get a stream of the events (e.g. challenge, gameStart)."""
@@ -295,34 +310,30 @@ class Lichess:
         """Get  stream of the in-game events (e.g. moves by the opponent)."""
         return self.api_get("stream", game_id, stream=True, timeout=15)
 
-    def accept_challenge(self, challenge_id: str) -> JSON_REPLY_TYPE:
+    def accept_challenge(self, challenge_id: str) -> None:
         """Accept a challenge."""
-        return self.api_post("accept", challenge_id)
+        self.api_post("accept", challenge_id)
 
-    def decline_challenge(self, challenge_id: str, reason: str = "generic") -> JSON_REPLY_TYPE:
+    def decline_challenge(self, challenge_id: str, reason: str = "generic") -> None:
         """Decline a challenge."""
-        try:
-            return self.api_post("decline", challenge_id,
-                                 data=f"reason={reason}",
-                                 headers={"Content-Type":
-                                          "application/x-www-form-urlencoded"},
-                                 raise_for_status=False)
-        except Exception:
-            return {}
+        with contextlib.suppress(Exception):
+            self.api_post("decline", challenge_id,
+                          data=f"reason={reason}",
+                          headers={"Content-Type": "application/x-www-form-urlencoded"},
+                          raise_for_status=False)
 
-    def get_profile(self) -> JSON_REPLY_TYPE:
+    def get_profile(self) -> UserProfileType:
         """Get the bot's profile (e.g. username)."""
-        profile = self.api_get_json("profile")
+        profile = cast(UserProfileType, self.api_get_json("profile"))
         self.set_user_agent(profile["username"])
         return profile
 
-    def get_ongoing_games(self) -> list[dict[str, Any]]:
+    def get_ongoing_games(self) -> list[GameType]:
         """Get the bot's ongoing games."""
-        ongoing_games: list[dict[str, Any]] = []
-        try:
-            ongoing_games = self.api_get_json("playing")["nowPlaying"]
-        except Exception:
-            pass
+        ongoing_games: list[GameType] = []
+        with contextlib.suppress(Exception):
+            response = cast(dict[str, list[GameType]], self.api_get_json("playing"))
+            ongoing_games = response["nowPlaying"]
         return ongoing_games
 
     def resign(self, game_id: str) -> None:
@@ -341,7 +352,7 @@ class Lichess:
         except Exception:
             return ""
 
-    def get_online_bots(self) -> list[dict[str, Any]]:
+    def get_online_bots(self) -> list[UserProfileType]:
         """Get a list of bots that are online."""
         try:
             online_bots_str = self.api_get_raw("online_bots")
@@ -350,18 +361,20 @@ class Lichess:
         except Exception:
             return []
 
-    def challenge(self, username: str, payload: REQUESTS_PAYLOAD_TYPE) -> JSON_REPLY_TYPE:
+    def challenge(self, username: str, payload: REQUESTS_PAYLOAD_TYPE) -> ChallengeType:
         """Create a challenge."""
-        return self.api_post("challenge", username, payload=payload, raise_for_status=False)
+        return cast(ChallengeType,
+                    self.api_post("challenge", username, payload=payload, raise_for_status=False))
 
-    def cancel(self, challenge_id: str) -> JSON_REPLY_TYPE:
+    def cancel(self, challenge_id: str) -> None:
         """Cancel a challenge."""
-        return self.api_post("cancel", challenge_id, raise_for_status=False)
+        self.api_post("cancel", challenge_id, raise_for_status=False)
 
-    def online_book_get(self, path: str, params: Optional[dict[str, Any]] = None, stream: bool = False) -> JSON_REPLY_TYPE:
+    def online_book_get(self, path: str, params: Optional[dict[str, Union[str, int]]] = None,
+                        stream: bool = False) -> OnlineType:
         """Get an external move from online sources (chessdb or lichess.org)."""
         @backoff.on_exception(backoff.constant,
-                              (RemoteDisconnected, ConnectionError, HTTPError, ReadTimeout),
+                              (RemoteDisconnected, RequestsConnectionError, HTTPError, ReadTimeout),
                               max_time=60,
                               max_tries=self.max_retries,
                               interval=0.1,
@@ -369,8 +382,8 @@ class Lichess:
                               on_backoff=backoff_handler,
                               backoff_log_level=logging.DEBUG,
                               giveup_log_level=logging.DEBUG)
-        def online_book_get() -> JSON_REPLY_TYPE:
-            json_response: JSON_REPLY_TYPE = self.other_session.get(path, timeout=2, params=params, stream=stream).json()
+        def online_book_get() -> OnlineType:
+            json_response: OnlineType = self.other_session.get(path, timeout=2, params=params, stream=stream).json()
             return json_response
         return online_book_get()
 
@@ -379,6 +392,6 @@ class Lichess:
         user = self.api_get_list("status", params={"ids": user_id})
         return bool(user and user[0].get("online"))
 
-    def get_public_data(self, user_name: str) -> JSON_REPLY_TYPE:
+    def get_public_data(self, user_name: str) -> PublicDataType:
         """Get the public data of a bot."""
-        return self.api_get_json("public_data", user_name)
+        return cast(PublicDataType, self.api_get_json("public_data", user_name))

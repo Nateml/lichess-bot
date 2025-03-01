@@ -1,17 +1,14 @@
 """
-Some example strategies for people who want to create a custom, homemade bot.
+Some example classes for people who want to create a homemade bot.
 
 With these classes, bot makers will not have to implement the UCI or XBoard interfaces themselves.
 """
-
-from __future__ import annotations
 import chess
-from chess.engine import PlayResult
+from chess.engine import PlayResult, Limit
 import random
-from engine_wrapper import MinimalEngine
-from typing import Any, Union
+from lib.engine_wrapper import MinimalEngine
+from lib.lichess_types import MOVE, HOMEMADE_ARGS_TYPE
 import logging
-MOVE = Union[chess.engine.PlayResult, list[chess.Move]]
 
 
 # Use this logger variable to print messages to the console or log files.
@@ -23,15 +20,13 @@ logger = logging.getLogger(__name__)
 class ExampleEngine(MinimalEngine):
     """An example engine that all homemade engines inherit."""
 
-    pass
 
-
-# Strategy names and ideas from tom7's excellent eloWorld video
+# Bot names and ideas from tom7's excellent eloWorld video
 
 class RandomMove(ExampleEngine):
     """Get a random move."""
 
-    def search(self, board: chess.Board, *args: Any) -> PlayResult:
+    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:  # noqa: ARG002
         """Choose a random move."""
         return PlayResult(random.choice(list(board.legal_moves)), None)
 
@@ -39,7 +34,7 @@ class RandomMove(ExampleEngine):
 class Alphabetical(ExampleEngine):
     """Get the first move when sorted by san representation."""
 
-    def search(self, board: chess.Board, *args: Any) -> PlayResult:
+    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:  # noqa: ARG002
         """Choose the first move alphabetically."""
         moves = list(board.legal_moves)
         moves.sort(key=board.san)
@@ -49,7 +44,7 @@ class Alphabetical(ExampleEngine):
 class FirstMove(ExampleEngine):
     """Get the first move when sorted by uci representation."""
 
-    def search(self, board: chess.Board, *args: Any) -> PlayResult:
+    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:  # noqa: ARG002
         """Choose the first move alphabetically in uci representation."""
         moves = list(board.legal_moves)
         moves.sort(key=str)
@@ -63,8 +58,12 @@ class ComboEngine(ExampleEngine):
     This engine demonstrates how one can use `time_limit`, `draw_offered`, and `root_moves`.
     """
 
-    def search(self, board: chess.Board, time_limit: chess.engine.Limit, ponder: bool, draw_offered: bool,
-               root_moves: MOVE) -> chess.engine.PlayResult:
+    def search(self,
+               board: chess.Board,
+               time_limit: Limit,
+               ponder: bool,  # noqa: ARG002
+               draw_offered: bool,
+               root_moves: MOVE) -> PlayResult:
         """
         Choose a move using multiple different methods.
 

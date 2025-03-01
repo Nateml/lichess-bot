@@ -3,12 +3,15 @@ import yaml
 import datetime
 import os
 
-with open("versioning.yml") as version_file:
+# File is part of an implicit namespace package. Add an `__init__.py`.
+# ruff: noqa: INP001
+
+with open("lib/versioning.yml") as version_file:
     versioning_info = yaml.safe_load(version_file)
 
 current_version = versioning_info["lichess_bot_version"]
 
-utc_datetime = datetime.datetime.utcnow()
+utc_datetime = datetime.datetime.now(datetime.UTC)
 new_version = f"{utc_datetime.year}.{utc_datetime.month}.{utc_datetime.day}."
 if current_version.startswith(new_version):
     current_version_list = current_version.split(".")
@@ -19,8 +22,8 @@ else:
 
 versioning_info["lichess_bot_version"] = new_version
 
-with open("versioning.yml", "w") as version_file:
+with open("lib/versioning.yml", "w") as version_file:
     yaml.dump(versioning_info, version_file, sort_keys=False)
 
-with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
     print(f"new_version={new_version}", file=fh)

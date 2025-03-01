@@ -1,14 +1,16 @@
 """Remove files created when testing lichess-bot."""
 import shutil
 import os
-from typing import Any
+from _pytest.config import ExitCode
+from _pytest.main import Session
+from typing import Union
 
 
-def pytest_sessionfinish(session: Any, exitstatus: Any) -> None:
-    """Remove files created when testing lichess-bot."""
-    shutil.copyfile("correct_lichess.py", "lichess.py")
-    os.remove("correct_lichess.py")
+def pytest_sessionfinish(session: Session, exitstatus: Union[int, ExitCode]) -> None:  # noqa: ARG001
+    """
+    Remove files created when testing lichess-bot.
+
+    The only exception is if running in a GitHub action, in which case we save the engines to the cache.
+    """
     if os.path.exists("TEMP") and not os.getenv("GITHUB_ACTIONS"):
         shutil.rmtree("TEMP")
-    if os.path.exists("logs"):
-        shutil.rmtree("logs")
