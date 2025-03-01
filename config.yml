@@ -101,7 +101,7 @@ challenge:                         # Incoming challenges.
   time_controls:                   # Time controls to accept.
     - bullet
     - blitz
-    - rapid
+#    - rapid
 #    - classical
 #   - correspondence
   modes:                           # Game modes to accept.
@@ -137,7 +137,7 @@ matchmaking:
     - 120
     - 180
     - 300
-    - 600
+#   - 600
   challenge_increment:             # Increment in seconds of the challenge (to be chosen at random).
     - 1
     - 3
