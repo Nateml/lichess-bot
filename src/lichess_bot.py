@@ -68,7 +68,7 @@ class VersioningType(TypedDict):
 
 logger = logging.getLogger(__name__)
 
-with open("lib/versioning.yml") as version_file:
+with open("src/versioning.yml") as version_file:
     versioning_info: VersioningType = yaml.safe_load(version_file)
 
 __version__ = versioning_info["lichess_bot_version"]
